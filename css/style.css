@@ -50,11 +50,15 @@ main {
     margin: auto;
     padding-bottom: 20px;
     margin-bottom: 40px;
+    z-index: 1;
+    position: relative;
 }
 
 .card-container {
     padding-left: 20px;
     padding-right: 20px;
+    z-index: 2;
+    position: relative;
 }
 
 .pin {
@@ -63,24 +67,36 @@ main {
     background-position: center;
     height: 50px;
     width: 50px;
-    position: relative;
-    left: 44%;
+    position: absolute;
+    left: 50%;
     top: -11px;
-    z-index: 6;
+    transform: translateX(-50%); 
+    z-index: 99;
 } 
 
 .images {
 height: 100%;
 width: 100%;
 position: relative; 
-top: -22px;
+top: 22px;
 z-index: 5;
 }
 
 .text {
     font-family: 'Edu TAS Beginner', 'sans-serif';
     font-size: 25px;
+    z-index: 99;
 }
+
+/* hover */
+.image-container:hover {
+    transform: rotate(16deg);
+    z-index: 1;
+}
+
+.image-container:hover .pin {
+ z-index: -1;
+ opacity: 0;
 
 /************************************************
     SOLUZIONE RESPONSIVE

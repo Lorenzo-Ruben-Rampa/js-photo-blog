@@ -15,7 +15,7 @@ axios.get(endpoint)
     // Ciclo i dati
     for (i=0; i<cards.length; i++) {
         let card = cards[i];
-        console.log(card);
+        // console.log(card);
     
     // Destrutturo l'oggetto
     const {title, date, url} = card;
