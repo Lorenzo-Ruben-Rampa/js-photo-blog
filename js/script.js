@@ -4,16 +4,16 @@ const outputDiv = document.getElementById('output');
 // Creo endpoint
 const endpoint = 'https://lanciweb.github.io/demo/api/pictures/'
 
-const cards = '';
+let cards = [];
 
 //Richiesta Ajax 
 axios.get(endpoint)
     .then(responseObj => {
         // Raccolgo i dati della response in una costante
-        const cards = responseObj.data;
+        cards = responseObj.data;
         console.log(cards);
     // Ciclo i dati
-    for (i=0; i<cards.length; i++) {
+    for (let i=0; i<cards.length; i++) {
         let card = cards[i];
         // console.log(card);
     
@@ -33,14 +33,67 @@ axios.get(endpoint)
                 </div>
     `
     }
+    // !!!BONUS // 
+// Seleziono l'output del click           
+const button = document.querySelector('button')
+
+// INIZIO EVENTO CLICK   
+button.addEventListener('click', buttonFunction); 
+
+// Seleziono l'elemento di output
+const outputOverlay = document.getElementById('overlay-container');  
+
+//Funzione per ciclare le immagini ad ogni click
+function buttonFunction() {
+        // Ciclo i dati
+        for (let i=0; i<cards.length; i++) {
+            let card = cards[i];
+
+        // Destrutturo l'oggetto
+        const {url} = card;
+    
+        // Creo le card
+        outputOverlay.innerHTML += `
+                    <div class="overlay hidden">
+                        <img src="${url}" class="clicked">
+                    </div>
+        `
+        outputOverlay.classList.add('display');
+        }
+    }
+
 })
     // Errore
     .catch(error => {
 	console.error(error)
     })
 
-// Aggiungo click button per ingrandire l'immagine              // !!!BONUS //
-const button = document.querySelector('img')
-button.addEventListener('click', function() {
-});    
+// // !!!BONUS // 
+// // Seleziono l'output del click           
+// const button = document.querySelector('button')
+
+// // INIZIO EVENTO CLICK   
+// button.addEventListener('click', buttonFunction); 
+
+// // Seleziono l'elemento di output
+// const outputOverlay = document.getElementById('overlay-container');  
+
+// //Funzione per ciclare le immagini ad ogni click
+// function buttonFunction() {
+//         // Ciclo i dati
+//         for (let i=0; i<cards.length; i++) {
+//             let card = cards[i];
+
+//         // Destrutturo l'oggetto
+//         const {url} = card;
     
+//         // Creo le card
+//         outputOverlay.innerHTML += `
+//                     <div class="overlay hidden">
+//                         <img src="${url}" class="clicked">
+//                     </div>
+//         `
+//         outputOverlay.classList.add('display');
+//         }
+//     }
+

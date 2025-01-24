@@ -128,9 +128,13 @@ button {
     top: 15%;
 }
 
-/* .hidden {
+.hidden {
     display: none;
-} */
+}
+
+.display {
+    display: block;
+}
 
 /************************************************
     SOLUZIONE RESPONSIVE
