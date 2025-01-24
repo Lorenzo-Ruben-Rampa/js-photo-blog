@@ -69,9 +69,9 @@ main {
     z-index: 6;
 } 
 
-img {
-height: 500px;
-width: 500px;
+.images {
+height: 385px;
+width: 385px;
 position: relative; 
 top: -22px;
 z-index: 5;

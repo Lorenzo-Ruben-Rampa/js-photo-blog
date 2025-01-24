@@ -4,13 +4,14 @@ const outputDiv = document.getElementById('output');
 // Creo endpoint
 const endpoint = 'https://lanciweb.github.io/demo/api/pictures/'
 
+const cards = '';
+
 //Richiesta Ajax 
 axios.get(endpoint)
     .then(responseObj => {
         // Raccolgo i dati della response in una costante
         const cards = responseObj.data;
         console.log(cards);
-    })
     // Ciclo i dati
     for (i=0; i<cards.length; i++) {
         let card = cards[i];
@@ -24,56 +25,16 @@ axios.get(endpoint)
                 <div class="image-container">
                     <div class="card-container">
                         <div class="pin"></div>
-                        <img src="${url} alt="${title}">
+                        <img class="images" src="${url}" alt="${title}">
                         <p class="tagline">${date}</p>
                         <p class="text">${title}</p>
                     </div>
                 </div>
-                    <div class="image-container">
-                        <div class="card-container">
-                            <div class="pin"></div>
-                        <img src="${url} alt="${title}">
-                            <p class="tagline">${date}</p>
-                            <p class="text">${title}</p>
-                        </div>
-                    </div>
-                    <div class="image-container">
-                        <div class="card-container">
-                            <div class="pin"></div>
-                        <img src="${url} alt="${title}">
-                            <p class="tagline">${date}</p>
-                            <p class="text">${title}</p>
-                        </div>
-                    </div>
-                    <div class="image-container">
-                        <div class="card-container">
-                            <div class="pin"></div>
-                        <img src="${url} alt="${title}">
-                            <p class="tagline">${date}</p>
-                            <p class="text">${title}</p>
-                        </div>
-                    </div>
-                        <div class="image-container">
-                            <div class="card-container">
-                                <div class="pin"></div>
-                        <img src="${url} alt="${title}">
-                                <p class="tagline">${date}</p>
-                                <p class="text">${title}</p>
-                            </div>
-                        </div>
-                        <div class="image-container">
-                            <div class="card-container">
-                                <div class="pin"></div>
-                        <img src="${url} alt="${title}">
-                                <p class="tagline">${date}</p>
-                                <p class="text">${title}</p>
-                            </div>
-                        </div>
-                </div>
     `
-
+    }
+})
     // Errore
     .catch(error => {
 	console.error(error)
     })
-    }
+    
