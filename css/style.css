@@ -8,6 +8,8 @@
     height: 100vh;
 }
 
+/* Frontespizio */
+
 header {
     height: 150px;
     background-image: url(/./img/wall.png);
@@ -16,13 +18,15 @@ header {
     justify-content: center;
 }
 
-main {
-    background-image: url(/./img/cork.png);
-}
-
 h1 {
     font-family: 'Edu TAS Beginner', 'sans-serif';
     font-size: 100px;
+}
+
+/* Contenuto principale */
+
+main {
+    background-image: url(/./img/cork.png);
 }
 
 .tagline {
@@ -77,3 +81,13 @@ z-index: 5;
     font-family: 'Edu TAS Beginner', 'sans-serif';
     font-size: 25px;
 }
+
+/************************************************
+    SOLUZIONE RESPONSIVE
+ ************************************************/
+
+ /* Tablet */
+
+ @media screen and (min-width:768px) and (max-width:991px) {
+
+ }
