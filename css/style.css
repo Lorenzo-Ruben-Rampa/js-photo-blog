@@ -27,6 +27,57 @@ h1 {
 }
 
 .tagline {
-    color: lightgray;
+    color: rgb(128, 127, 127);
     font-family: 'Sometype Mono', 'monospace';
+    font-weight: bold;
+}
+
+#output {
+    display: flex;
+    justify-content: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 50px;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    background-color: white;
+    width: 32%;
+    margin: auto;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.card-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.pin {
+	background-image: url(/./img/pin.svg);
+    background-size: cover;
+    background-position: center;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    left: 44%;
+    top: -11px;
+    z-index: 6;
+} 
+
+.holiday {
+    background-image: url(/./img/depositphotos_62943855-stock-photo-sardinia-sea.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    width: 100%;
+    position: relative; 
+    top: -22px;
+    z-index: 5;
+}
+
+.text {
+    font-family: 'Edu TAS Beginner', 'sans-serif';
+    font-size: 25px;
 }
