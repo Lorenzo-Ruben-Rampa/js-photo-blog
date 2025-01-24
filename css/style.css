@@ -70,8 +70,8 @@ main {
 } 
 
 .images {
-height: 385px;
-width: 385px;
+height: 100%;
+width: 100%;
 position: relative; 
 top: -22px;
 z-index: 5;
@@ -88,6 +88,32 @@ z-index: 5;
 
  /* Tablet */
 
- @media screen and (min-width:768px) and (max-width:991px) {
+ @media screen and (max-width:768px) {
+
+    .image-container{
+        width: 43%;
+    }
+
+    .pin {
+        left: 37%;
+    }
 
  }
+
+ 
+ /* Mobile */
+
+ @media screen and (max-width:320px) {
+
+    .image-container {
+        width: 93%;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    header {
+        height: 100px;
+    }
+ }   
