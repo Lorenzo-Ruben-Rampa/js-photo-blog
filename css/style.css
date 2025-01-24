@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box; 	
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    height: 100vh;
+}
+
+header {
+    height: 150px;
+    background-image: url(/./img/wall.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    background-image: url(/./img/cork.png);
+    height: 100%;
+}
+
+h1 {
+    font-family: 'Edu TAS Beginner', 'sans-serif';
+    font-size: 100px;
+}
+
+.tagline {
+    color: lightgray;
+    font-family: 'Sometype Mono', 'monospace';
+}
