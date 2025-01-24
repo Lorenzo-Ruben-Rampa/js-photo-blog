@@ -33,6 +33,9 @@ main {
     color: rgb(128, 127, 127);
     font-family: 'Sometype Mono', 'monospace';
     font-weight: bold;
+    position: relative;
+    z-index: 9;
+    font-size: 30px;
 }
 
 #output {
@@ -84,8 +87,9 @@ z-index: 5;
 
 .text {
     font-family: 'Edu TAS Beginner', 'sans-serif';
-    font-size: 25px;
+    font-size: 50px;
     z-index: 99;
+    position: relative;
 }
 
 /* hover */
@@ -97,6 +101,13 @@ z-index: 5;
 .image-container:hover .pin {
  z-index: -1;
  opacity: 0;
+}
+
+ /* Click EventListener  */
+
+button {
+    display: none;
+ }
 
 /************************************************
     SOLUZIONE RESPONSIVE
@@ -112,6 +123,18 @@ z-index: 5;
 
     .pin {
         left: 37%;
+    }
+
+    .text {
+        font-size: 25px;
+    }
+
+    .tagline {
+        font-size: 16px;
+    }
+
+    .pin {
+        left: 50%;
     }
 
  }

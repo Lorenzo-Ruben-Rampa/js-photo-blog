@@ -26,6 +26,7 @@ axios.get(endpoint)
                     <div class="card-container">
                         <div class="pin"></div>
                         <img class="images" src="${url}" alt="${title}">
+                        <br> <br> <br>
                         <p class="tagline">${date}</p>
                         <p class="text">${title}</p>
                     </div>
@@ -37,4 +38,9 @@ axios.get(endpoint)
     .catch(error => {
 	console.error(error)
     })
+
+// Aggiungo click button per ingrandire l'immagine              // !!!BONUS //
+// const button = document.querySelector('button')
+// button.addEventListener('click', function() {
+// });    
     
