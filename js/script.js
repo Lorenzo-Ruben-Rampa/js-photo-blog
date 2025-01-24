@@ -28,7 +28,7 @@ axios.get(endpoint)
                         <img class="images" src="${url}" alt="${title}">
                         <br> <br> <br>
                         <p class="tagline">${date}</p>
-                        <p class="text">${title}</p>
+                        <p class="text">${title.toUpperCase()}</p>
                     </div>
                 </div>
     `
@@ -40,7 +40,7 @@ axios.get(endpoint)
     })
 
 // Aggiungo click button per ingrandire l'immagine              // !!!BONUS //
-// const button = document.querySelector('button')
-// button.addEventListener('click', function() {
-// });    
+const button = document.querySelector('img')
+button.addEventListener('click', function() {
+});    
     
