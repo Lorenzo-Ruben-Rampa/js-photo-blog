@@ -68,7 +68,8 @@ function zoomFunction(imageUrl) {
     outputOverlay.classList.add('display');
 
     // Pulsante per chiudere l'overlay
-    document.getElementById('close-button').addEventListener('click', function() {
+    const closeButton = document.getElementById('close-button');
+    closeButton.addEventListener('click', function() {
         outputOverlay.classList.remove('display');
     });
 }
