@@ -4,14 +4,16 @@ const outputDiv = document.getElementById('output');
 // Creo endpoint
 const endpoint = 'https://lanciweb.github.io/demo/api/pictures/'
 
+//Creo un array vuoto
 let cards = [];
 
 //Richiesta Ajax 
 axios.get(endpoint)
-    .then(responseObj => {
+    .then(function(responseObj) {
         // Raccolgo i dati della response in una costante
         cards = responseObj.data;
         console.log(cards);
+
     // Ciclo i dati
     for (let i=0; i<cards.length; i++) {
         let card = cards[i];
@@ -21,79 +23,52 @@ axios.get(endpoint)
     const {title, date, url} = card;
 
     // Creo le card
-    outputDiv.innerHTML += `
-                <div class="image-container">
-                    <div class="card-container">
-                        <div class="pin"></div>
-                        <img class="images" src="${url}" alt="${title}">
-                        <br> <br> <br>
-                        <p class="tagline">${date}</p>
-                        <p class="text">${title.toUpperCase()}</p>
-                    </div>
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("image-container");
+    cardDiv.innerHTML = `
+                <div class="card-container">
+                    <div class="pin"></div>
+                    <img class="images" src="${url}" alt="${title}">
+                    <br><br><br>
+                    <p class="tagline">${date}</p>
+                    <p class="text">${title.toUpperCase()}</p>
                 </div>
-    `
-    }
-    // !!!BONUS // 
-// Seleziono l'output del click           
-const button = document.querySelector('button')
+                `;
 
-// INIZIO EVENTO CLICK   
-button.addEventListener('click', buttonFunction); 
+    // !!!BONUS //   
+    // Seleziono l'immagine creata e aggiungo l'evento click
+            const imgElement = cardDiv.querySelector(".images");
+            imgElement.addEventListener("click", function() { 
+                zoomFunction(url);
+            });
 
-// Seleziono l'elemento di output
-const outputOverlay = document.getElementById('overlay-container');  
-
-//Funzione per ciclare le immagini ad ogni click
-function buttonFunction() {
-        // Ciclo i dati
-        for (let i=0; i<cards.length; i++) {
-            let card = cards[i];
-
-        // Destrutturo l'oggetto
-        const {url} = card;
-    
-        // Creo le card
-        outputOverlay.innerHTML += `
-                    <div class="overlay hidden">
-                        <img src="${url}" class="clicked">
-                    </div>
-        `
-        outputOverlay.classList.add('display');
+            // Aggiungo la card al DOM
+            outputDiv.appendChild(cardDiv);
+        
         }
-    }
-
-})
-    // Errore
-    .catch(error => {
-	console.error(error)
     })
-
-// // !!!BONUS // 
-// // Seleziono l'output del click           
-// const button = document.querySelector('button')
-
-// // INIZIO EVENTO CLICK   
-// button.addEventListener('click', buttonFunction); 
-
-// // Seleziono l'elemento di output
-// const outputOverlay = document.getElementById('overlay-container');  
-
-// //Funzione per ciclare le immagini ad ogni click
-// function buttonFunction() {
-//         // Ciclo i dati
-//         for (let i=0; i<cards.length; i++) {
-//             let card = cards[i];
-
-//         // Destrutturo l'oggetto
-//         const {url} = card;
     
-//         // Creo le card
-//         outputOverlay.innerHTML += `
-//                     <div class="overlay hidden">
-//                         <img src="${url}" class="clicked">
-//                     </div>
-//         `
-//         outputOverlay.classList.add('display');
-//         }
-//     }
+    .catch(function(error) {
+        console.error("Errore nella richiesta API:", error);
+    });
 
+    
+//Seleziono l'output
+const outputOverlay = document.getElementById('overlay-container');
+
+// Funzione per gestire il click su un'immagine
+function zoomFunction(imageUrl) {
+    outputOverlay.innerHTML = `
+        <div class="overlay">
+            <img src="${imageUrl}" class="clicked">
+            <button id="close-button">Chiudi</button>
+        </div>
+    `;
+
+    outputOverlay.classList.add('display');
+
+    // Pulsante per chiudere l'overlay
+    document.getElementById('close-button').addEventListener('click', function() {
+        outputOverlay.classList.remove('display');
+    });
+}
